@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task 1</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		function getData(pagename) {
+			var req = new XMLHttpRequest();
+			var address = "login";
+			req.open("get", "http://127.0.0.1:8887/" + pagename);
+			req.onload = function(){
+				var content = document.getElementById("content");
+				content.innerHTML = this.responseText;
+			};
+			req.send();
+		}
+	</script>
+
+</head>
+<body>
+	<div class = "container" style="position: absolute;left: 0px;">
+		<div style="font-size: 20px; float:left; margin-right: 20px; " onclick="getData('home.html');">Home</div>
+		<div style="font-size: 20px; float:left; margin-right: 20px;" onclick="getData('login.html');">Login</div>
+		<div style="font-size: 20px;" onclick="getData('register.html');">Regitser</div>
+	</div>
+	<div id="content"></div>
+</body>
+</html>
